@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoute.js";
+import contactRoutes from "./routes/contactRoute.js";
 import cors from "cors";
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(
 );
 
 app.use("/api", userRoutes);
+app.use("/api", contactRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
