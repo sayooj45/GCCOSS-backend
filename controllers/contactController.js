@@ -13,3 +13,26 @@ export const getSubmissions = async (req, res) => {
     });
   }
 };
+
+// CREATE SUBMISSION
+export const createSubmission = async (req, res) => {
+  try {
+    const { name, mobile, email, message } = req.body;
+
+    const submission = await ContactSubmission.create({
+      name,
+      mobile,
+      email,
+      message,
+    });
+
+    res.status(201).json({
+      message: "Submission sent successfully",
+      submission,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};

@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoute.js";
 import contactRoutes from "./routes/contactRoute.js";
+import partnerRoutes from "./routes/partnerRoute.js";
+import eventRoutes from "./routes/eventRoute.js";
+import publicationRoutes from "./routes/publicationRoutes.js";
 import cors from "cors";
 dotenv.config();
 
@@ -19,6 +22,9 @@ app.use(
 
 app.use("/api", userRoutes);
 app.use("/api", contactRoutes);
+app.use("/api/partners", partnerRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/publications", publicationRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
