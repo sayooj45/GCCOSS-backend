@@ -48,7 +48,7 @@ export const updatePublication = async (req, res) => {
       description,
     };
 
-    if (req.files?.image) {
+    if (req.files?.publicationImage) {
       updateData.image = req.files.image[0].location;
     }
 
