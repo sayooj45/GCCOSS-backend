@@ -25,6 +25,17 @@ const upload = multer({
 
     acl: "public-read",
 
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+
+    contentDisposition: (req, file, cb) => {
+      // OPEN PDF IN BROWSER
+      if (file.fieldname === "pdf") {
+        cb(null, "inline");
+      } else {
+        cb(null, null);
+      }
+    },
+
     metadata: (req, file, cb) => {
       cb(null, {
         fieldName: file.fieldname,
