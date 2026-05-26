@@ -15,7 +15,12 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", process.env.ADMIN_URL],
+    origin: [
+      "http://localhost:5173",
+      process.env.ADMIN_URL,
+      process.env.DEMO_FRONTEND_URL,
+      process.FRONTEND_URL,
+    ],
     credentials: true,
   })
 );
